@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Trang chủ</title>
+        <script>
+            function updateTime() {
+                var now = new Date();
+                var day = ("0" + now.getDate()).slice(-2);
+                var month = ("0" + (now.getMonth() + 1)).slice(-2); // Tháng bắt đầu từ 0
+                var year = now.getFullYear();
+                var hours = ("0" + now.getHours()).slice(-2);
+                var minutes = ("0" + now.getMinutes()).slice(-2);
+                var seconds = ("0" + now.getSeconds()).slice(-2);
+                
+                var currentTime = day + "-" + month + "-" + year + " " + hours + ":" + minutes + ":" + seconds;
+                
+                document.getElementById("currentDateTime").innerHTML = currentTime;
+            }
+
+            setInterval(updateTime, 1000); // Cập nhật mỗi giây
+
+            // Function to perform calculations
+            function calculate() {
+                var a = 9;
+                var b = 3;
+                document.getElementById("aValue").innerHTML = "a = " + a + "  b = " + b;
+                document.getElementById("add").innerHTML = a + " + " + b + " = " + (a + b);
+                document.getElementById("subtract").innerHTML = a + " - " + b + " = " + (a - b);
+                document.getElementById("multiply").innerHTML = a + " * " + b + " = " + (a * b);
+                document.getElementById("divide").innerHTML = a + " / " + b + " = " + (a / b);
+
+                var tong = 0;
+                for (var i = 1; i <= 100; i++) {
+                    tong += i;
+                }
+                document.getElementById("sum").innerHTML = "TỔNG 1+2+3+...+100 là: " + tong;
+            }
+        </script>
+    </head>
+    <body onload="calculate()" align="center" style="background-color: gray">
+        <h2>Ngày và giờ hiện tại: <span id="currentDateTime"></span></h2>
+        <h1>TÍNH TOÁN ĐƠN GIẢN</h1>
+        
+        <h2 id="aValue"></h2>
+        
+        <h2 style="color: red;" id="add"></h2>
+        <h2 style="color: yellow;" id="subtract"></h2>
+        <h2 style="color: blue;" id="multiply"></h2>
+        <h2 style="color: green;" id="divide"></h2>
+        
+        <h2 id="sum"></h2>
+    </body>
+</html>
